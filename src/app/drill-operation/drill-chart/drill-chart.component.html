@@ -1,0 +1,27 @@
+<button style="margin:5px;" class="btn btn-primary btn-sm" (click)="addModal()">
+  Add Operation
+  </button>
+  
+  <nz-table #basicTable [nzFrontPagination]="false" [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th>Sr No</th>
+        <th>Event</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of listOfData; let i = index">
+        <td>{{ i+1 }}</td>
+        <td>{{ data.eventName }}</td>
+        <td>{{ data.startInterval }}</td>
+        <td>{{ data.endInterval }}</td>
+        <td>
+          <a (click)="updateModal(data.id)">Update</a> | <a (click)="delete(data.id)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  

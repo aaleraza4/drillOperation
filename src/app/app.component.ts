@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DrillOperationService } from './drill-operation.service';
+import { DrillOperation } from './DrillOperation';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TaskUseCase';
+
+  isCollapsed = false;
+  drillOperations: DrillOperation[] | undefined;
+  newDrillOperation: DrillOperation = new DrillOperation();
+  selectedDrillOperation: DrillOperation = new DrillOperation();
+
+  constructor(private drillOperationService: DrillOperationService) { }
 }
+
